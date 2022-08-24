@@ -9,16 +9,19 @@ namespace EngineSimulation.Entities.Tests
         public TemperatureTest(double _dt, Engine _engine)
             : base(_dt, _engine){}
 
+        /// <summary>
+        /// Запускает тест на температуру
+        /// </summary>
         public override void Start()
         {
             InWork = true;
             new Thread(() =>
             {
-                while (_engine.EngineTemperature <= _engine.MaxTemerture)
+                while (engine.EngineTemperature <= engine.MaxTemerture)
                 {
-                    _engine.Step(dt);
+                    engine.Step(dt);
                     Time += dt;
-                    Console.WriteLine(Time + "сек - " + _engine.TemperatureReport());
+                    Console.WriteLine(Time + "сек - " + engine.TemperatureReport());
                     Thread.Sleep(TimeSpan.FromMilliseconds(100));
                 }
                 InWork = false;

@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EngineSimulation.Abstract
+﻿namespace EngineSimulation.Abstract
 {
     public abstract class TestCreator
     {
-        protected double dt;
-        protected Engine engine;
+        protected double dt { get; set; }
+        protected Engine engine { get; set; }
         protected TestCreator(double _dt, Engine _engine)
         { 
             dt = _dt;

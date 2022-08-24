@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EngineSimulation.Abstract
+﻿namespace EngineSimulation.Abstract
 {
     public abstract class EngineTest
     {
         public double Time { get; protected set; } = 0;
-        public bool InWork = false;
-        protected Engine _engine;
-        protected double dt;
+        public bool InWork { get; protected set; } = false;
+        protected Engine engine { get; set; }
+        protected double dt { get; set; }
         protected EngineTest Test { get; set; }
         protected EngineTest(double _dt, Engine _engine)
         { 
             dt = _dt;
-            this._engine = _engine;
+            engine = _engine;
         }
         public abstract void Start();
         /// <summary>
@@ -25,5 +19,11 @@ namespace EngineSimulation.Abstract
         /// <param name="test">Тест</param>
         public void SetTest(EngineTest test)
         { Test = test; }
+        /// <summary>
+        /// Устанавливает двигатель для теста
+        /// </summary>
+        /// <param name="_engine">Двигатель</param>
+        public void SetEngine(Engine _engine)
+        { engine = _engine; }
     }
 }
