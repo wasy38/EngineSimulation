@@ -3,7 +3,7 @@ using EngineSimulation.Entities.Engiens;
 
 namespace EngineSimulation.Entities.Creators
 {
-    internal class SECreator : EngineCreator
+    public class SECreator : EngineCreator
     {
         public SECreator(int inertion, double maxTemerture, double heatingFromTorque, double heatingFromRotation, double coolingRates, int[] _M, int[] _v)
             : base(inertion, maxTemerture, heatingFromTorque, heatingFromRotation, coolingRates, _M, _v) { }

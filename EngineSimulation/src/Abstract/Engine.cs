@@ -10,7 +10,7 @@ namespace EngineSimulation.Abstract
         protected double HeatingFromRotation { get; set; }
         protected double CoolingRates { get; set; }
         public double EngineTemperature { get; protected set; }
-        protected double RotationSpeed { get; set; }
+        public double RotationSpeed { get; protected set; }
         protected int[] M { get; set; }
         protected int[] v { get; set; }
 
