@@ -20,6 +20,10 @@
             M = _M;
             v = _v;
         }
+        /// <summary>
+        /// Создает экземпляр двигателя
+        /// </summary>
+        /// <returns>Двигатель</returns>
         public abstract Engine CreateEngine();
     }
 }
