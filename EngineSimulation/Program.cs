@@ -10,14 +10,31 @@ namespace EngineSimulation
         static void Main(string[] args)
         {
             EngineCreator creator;
-
+            #region Параметры двигателя
+            int Inertion =10;
+            double MaxTemerture=110;
+            double HeatingFromTorque=0.01;
+            double HeatingFromRotation=0.0001;
+            double CoolingRates=0.1;
+            int[] M = new int[] { 20, 75, 100, 105, 75, 0 };
+            int[] v = new int[] { 0, 75, 150, 200, 250, 300 };
+            #endregion
             Console.WriteLine("Введите температуру окружающей среды");
             Entities.Environment.GetInstance(Double.Parse(Console.ReadLine()));
             Console.Clear();
-            creator = new ICECreator(10, 110, 0.01, 0.0001, 0.1, new int[] { 20, 75, 100, 105, 75, 0 }, new int[] { 0, 75, 150, 200, 250, 300 });
+            creator = new ICECreator(Inertion, MaxTemerture, HeatingFromTorque, HeatingFromRotation, CoolingRates, M, v);
             Engine engine = creator.CreateEngine();
             Stand stand = new(1, engine);
-            creator = new SECreator(5, 100, 0.1, 0.001, 0.01, new int[] { 10, 50, 75, 100, 60, 0 }, new int[] { 0, 50, 100, 150, 200, 250 });
+
+            Inertion = 5;
+            MaxTemerture = 100;
+            HeatingFromTorque = 0.1;
+            HeatingFromRotation = 0.001;
+            CoolingRates = 0.01;
+            M = new int[] { 10, 50, 75, 100, 60, 0 };
+            v = new int[] { 0, 50, 100, 150, 200, 250 };
+
+            creator = new SECreator(Inertion,MaxTemerture,HeatingFromTorque,HeatingFromRotation,CoolingRates,M,v);
             engine = creator.CreateEngine();
             Stand stand1 = new(1, engine);
             stand.Start();
